@@ -3,11 +3,14 @@
 '''
 Created on 2016年9月28日
 
+@function: Get the performace list of qintai concert hall, and print into 
+           a text file.
 @author: Stering
 '''
 import urllib2, re
 
-filename='performanceList.txt'
+filename='temp.txt'
+
 
 def get_info():
     str1=r'http://www.qtconcerthall.com/all_performance/'
@@ -54,6 +57,7 @@ def sear_cont(html):
     
 def printInfo():
     f=open(filename, 'a+')
+    f.write('总计：' + str(len(info)) + ' 场 \n')
     for i in range(len(info)):
         f.write(str(i+1) + ':\n')
         f.write(info[i]['Title'])
